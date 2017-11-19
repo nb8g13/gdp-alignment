@@ -89,4 +89,12 @@ public class SubstitutionMatrix {
 		return indexMap.size();
 	}
 	
+	public void adjustByExtension(double ext) {
+		for (int i = 0; i < this.subMatrix.length; i++) {
+			for (int j = 0; j < this.subMatrix[0].length; j++) {
+				this.subMatrix[i][j] += 2*ext;
+			}
+		}
+	}
+	
 }
