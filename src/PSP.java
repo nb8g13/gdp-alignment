@@ -30,9 +30,9 @@ public class PSP implements ScoringSystem {
 			}
 		}
 		
-		System.out.println("Printing X frequencies: " + fxy[0][0] +", " + fxy[1][0] +", "+ fxy[2][0] +","+  fxy[3][0]);
-		System.out.println("Printing Y frequencies: " + fxy[0][1] +", " + fxy[1][1] +", "+ fxy[2][1] +","+  fxy[3][1]);
-		System.out.println("Printing substitution cost for (" + col1 +", " + col2 + "): " + sum);
+		//System.out.println("Printing X frequencies: " + fxy[0][0] +", " + fxy[1][0] +", "+ fxy[2][0] +","+  fxy[3][0]);
+		//System.out.println("Printing Y frequencies: " + fxy[0][1] +", " + fxy[1][1] +", "+ fxy[2][1] +","+  fxy[3][1]);
+		//System.out.println("Printing substitution cost for (" + col1 +", " + col2 + "): " + sum);
 		return sum;
 	}
 

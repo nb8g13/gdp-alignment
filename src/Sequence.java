@@ -13,4 +13,8 @@ public class Sequence {
 	public void prependSeq(char c) {
 		this.seq = c + seq;
 	}
+	
+	public String toString() {
+		return this.getSeq();
+	}
 }

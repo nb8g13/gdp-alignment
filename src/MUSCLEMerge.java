@@ -25,84 +25,114 @@ public class MUSCLEMerge implements ProfileMerger {
 		List<Double> leftCloses = this.gp.closeCost(left);
 		List<Double> rightCloses = this.gp.closeCost(right);
 		
+		// Stops error thrown at x = 1 and y = 1
+		leftCloses.add(0,0.0);
+		rightCloses.add(0, 0.0);
+		
 		//LX by LY
-		double[][] scores = new double[rows][cols];
+		double[][] M = new double[rows+1][cols+1];
+		double[][] D = new double[rows+1][cols+1];
+		double[][] I = new double[rows+1][cols+1];
+		
+		//Initial conditions
+		
+		for(int i = 1; i < rows+1; i++) {
+			D[i][0] = 0.0;
+		}
+		
+		for(int i = 1; i < cols+1; i++) {
+			I[0][i] = 0.0;
+		}
 		
 		
-		double[] dPrev = new double[cols];
-		double[] dCurr = new double[cols];
+		I[0][0] = Double.MIN_VALUE;
 		
-		double[] mPrev = new double[cols];
-		double[] mCurr = new double[cols];
+		D[0][0] = Double.MIN_VALUE;
 		
-		double[] iPrev = new double[cols];
-		double[] iCurr = new double[cols];
+		M[0][0] = 0.0;
 		
-		
-		for(int x = 0; x < scores.length; x++) {
-			
-			//Need to check the by0value, by-reference passing here
-			dPrev = dCurr;
-			mPrev = mCurr;
-			iPrev = iCurr;
-			
-			for (int y = 0; y < scores[0].length; y++) {
+		for(int i = 1; i < rows+1; i++) {
+			for (int j = 1; j < cols+1; j++) {
 				
-				double sxy = this.scoring.score(left.getSequences(), right.getSequences(), this.subs, x, y);
+				// Pick new M value
+				double sxy = scoring.score(left.getSequences(), right.getSequences(), this.subs, i-1, j-1);
+				// Will cause index out of bounds right now
+				double[] mOptions = {D[i-1][j-1] + leftCloses.get(i-1), I[i-1][j-1] + rightCloses.get(j-1), M[i-1][j-1]};
+				M[i][j] = this.maxValue(mOptions) + sxy;
 				
-				double[] mOptions; 
+				//Pick new D value
+				double dOptions[] = {M[i-1][j] + leftOpens.get(i-1), D[i-1][j]};
+				D[i][j] = this.maxValue(dOptions);
 				
-				if (x > 0 && y > 0) {
-					mOptions = new double[3];
-					mOptions[0] = mPrev[y-1];
-					mOptions[1] = dPrev[y-1] + leftCloses.get(x-1);
-					mOptions[2] = iPrev[y-1] + rightCloses.get(y-1);
-					mCurr[y] = sxy + this.maxValue(mOptions);
-				}
-				
-				else {
-					mCurr[y] = sxy;
-				}
-				
-				
-				double[] dOptions = new double[2];
-				
-				dOptions[0] = dPrev[y];
-				dOptions[1] = mPrev[y] + leftOpens.get(x);
-				dCurr[y] = this.maxValue(dOptions);
-				
-				double[] iOptions = new double[2];
-				
-				if (y > 0) {
-					iOptions[0] = iCurr[y-1];
-					iOptions[1] = mPrev[y] + rightOpens.get(y);
-					iCurr[y] = this.maxValue(iOptions);
-				}
-				
-				else {
-					iCurr[y] = 0;
-				}
-				
-				
-				double[] options = {iCurr[y], dCurr[y], mCurr[y]};
-				scores[x][y] = this.maxValue(options);
+				//Pick new I value
+				double iOptions[] = {M[i][j-1] + rightOpens.get(j-1), I[i][j-1]};
+				I[i][j] = this.maxValue(iOptions);
 			}
-			
 		}
 		
 		String[] leftAlignments = new String[left.getSequences().size()];
+		
+		for(int i = 0; i < leftAlignments.length; i++) {
+			leftAlignments[i] = "";
+		}
+		
 		String[] rightAlignments = new String[right.getSequences().size()];
 		
-		//Starting trace-back
+		for(int i = 0; i < rightAlignments.length; i++) {
+			rightAlignments[i] = "";
+		}
+		
 		int x = rows;
 		int y = cols;
 		
+		while(x != 0 || y != 0) {
+			double[] options = {M[x][y], D[x][y], I[x][y]};
+			double max = this.maxValue(options);
+			
+			if(max == M[x][y]) {
+				this.prependLetters(leftAlignments, left, x-1);
+				this.prependLetters(rightAlignments, right, y-1);
+				x--;
+				y--;
+			}
+			
+			else if(max == D[x][y]) {
+				this.prependLetters(leftAlignments, left, x-1);
+				this.prependSpace(rightAlignments);
+				x--;
+			}
+			
+			else if (max == I[x][y]) {
+				this.prependSpace(leftAlignments);
+				this.prependLetters(rightAlignments, right, y-1);
+				y--;
+			}
+		}
 		
-				
-		// Need the vectors for traceback I think
+		// Fill in remaining spaces
+		if (x != 0) {
+			while(x > 0) {
+				this.prependLetters(leftAlignments, left, x-1);
+				this.prependSpace(rightAlignments);
+				x--;
+			}
+		}
 		
+		else if (y != 0) {
+			while(y > 0) {
+				this.prependSpace(leftAlignments);
+				this.prependLetters(rightAlignments, right, y-1);
+				y--;
+			}
+		}
 		
-		return null;
+		//Create all aligned sequences in one list
+		List<Sequence> alignments = toSequenceList(rightAlignments, toSequenceList(leftAlignments, new ArrayList<Sequence>()));
+		
+		Profile parent = new Profile(left, right, alignments);
+		
+		return parent;
+	
 	}
 	
 	
@@ -128,6 +158,14 @@ public class MUSCLEMerge implements ProfileMerger {
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = '-' + arr[i];
 		}
+	}
+	
+	public List<Sequence> toSequenceList(String[] arr, List<Sequence> sequences) {
+		for(int i = 0; i < arr.length; i++) {
+			sequences.add(new Sequence(arr[i]));
+		}
+		
+		return sequences;
 	}
 	
 }

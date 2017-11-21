@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Profile {
@@ -27,4 +28,8 @@ public class Profile {
 		return alignments;
 	}
 	
+	//Not very efficient...
+	public String toString() {
+		return Arrays.toString(this.alignments.toArray());
+	}
 }

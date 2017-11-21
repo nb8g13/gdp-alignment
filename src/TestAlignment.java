@@ -34,7 +34,10 @@ public class TestAlignment {
 		Profile prof3 = new Profile(prof1, prof2, alignments);
 		Profile prof4 = new Profile(new Sequence("ACTAGCGG"));
 		
-		merger.merge(prof3,  prof4);
+		Profile output = merger.merge(prof3,  prof4);
 		
+		System.out.println("Left child: " + prof3);
+		System.out.println("Right child: " + prof4);
+		System.out.println("Alignment: " + output);
 	}
 }

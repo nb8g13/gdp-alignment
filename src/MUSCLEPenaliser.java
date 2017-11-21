@@ -14,14 +14,31 @@ public class MUSCLEPenaliser implements GapPenalty {
 	@Override
 	public List<Double> openCost(Profile prof) {
 		List<Double> opens = new ArrayList<Double>();
+		boolean[] inGap = new boolean[prof.getSequences().size()];
+		
+		//Check for opening gap
+		for(int i = 0; i < prof.getSequences().size(); i++) {
+			String seq = prof.getSequences().get(i).getSeq();
+			
+			if(seq.charAt(0) == '-') {
+				inGap[i] = true;
+			}
+		}
+		
+		//Assign no cost for opening gap at start of sequence
 		opens.add(0.0);
 
 		for (int i = 1; i < prof.getSequences().get(0).getSeq().length(); i++) {
 			double count = 0;
 			for (int j = 0; j < prof.getSequences().size(); j++) {
 				String seq = prof.getSequences().get(j).getSeq();
-				if (seq.charAt(i) == '-') {
+				if (seq.charAt(i) == '-' && !inGap[j]) {
+					inGap[j] = true;
 					count++;
+				}
+				
+				else if (seq.charAt(i) != '-') {
+					inGap[j] = false;
 				}
 			}
 			
@@ -36,13 +53,30 @@ public class MUSCLEPenaliser implements GapPenalty {
 	@Override
 	public List<Double> closeCost(Profile prof) {
 		List<Double> closes = new ArrayList<Double>();
+		boolean[] inGap = new boolean[prof.getSequences().size()];
 		
-		for (int i = 0; i < prof.getSequences().get(0).getSeq().length() - 1; i++) {
+		for(int i = 0; i < prof.getSequences().size(); i++) {
+			String seq = prof.getSequences().get(i).getSeq();
+			
+			if(seq.charAt(i) == '-') {
+				inGap[i] = true;
+			}
+		}
+		
+		
+		for (int i = 1; i < prof.getSequences().get(0).getSeq().length(); i++) {
 			double count = 0;
 			for (int j = 0; j < prof.getSequences().size(); j++) {
 				String seq = prof.getSequences().get(j).getSeq();
-				if (seq.charAt(i) == '-') {
+				
+				if(seq.charAt(i) != '-' && inGap[j]) {
 					count++;
+					inGap[j] = false;
+					
+				}
+				
+				else if(seq.charAt(i) == '-' && !inGap[j]) {
+					inGap[j] = true;
 				}
 			}
 			
@@ -52,6 +86,7 @@ public class MUSCLEPenaliser implements GapPenalty {
 				
 		}
 		
+		//Assign no cost for finishing sequence with a gap
 		closes.add(0.0);
 		return closes;
 	}
