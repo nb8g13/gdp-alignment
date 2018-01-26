@@ -13,7 +13,6 @@ public class Stage1Aligner implements Aligner {
 		this.sim = new KmerMetric(3);
 	}
 	
-	// This code needs a clean up
 	@Override
 	public String[] align(String[] strs) {
 		

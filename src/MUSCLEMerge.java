@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+//Need to refactor and retain author history - or keep originals
 public class MUSCLEMerge implements ProfileMerger {
 	
 	ScoringSystem scoring;
