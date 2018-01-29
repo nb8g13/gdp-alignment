@@ -46,9 +46,9 @@ public class MUSCLEMerge implements ProfileMerger {
 		}
 		
 		
-		I[0][0] = Double.MIN_VALUE;
+		I[0][0] = -Double.MAX_VALUE;
 		
-		D[0][0] = Double.MIN_VALUE;
+		D[0][0] = -Double.MAX_VALUE;
 		
 		M[0][0] = 0.0;
 		
@@ -86,11 +86,12 @@ public class MUSCLEMerge implements ProfileMerger {
 		int x = rows;
 		int y = cols;
 		
-		while(x != 0 || y != 0) {
+		while(x != 0 && y != 0) {
 			double[] options = {M[x][y], D[x][y], I[x][y]};
 			double max = this.maxValue(options);
 			
 			if(max == M[x][y]) {
+				//System.out.println("y: " + y);
 				this.prependLetters(leftAlignments, left, x-1);
 				this.prependLetters(rightAlignments, right, y-1);
 				x--;

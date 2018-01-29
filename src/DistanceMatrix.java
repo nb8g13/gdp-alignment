@@ -44,11 +44,12 @@ public class DistanceMatrix<T extends Comparable<T>> {
 	}
 	
 	public void removeIndex(int i) {
-		
+		//System.out.println(this);
 		matrix.remove(i);
-		
+		System.err.println(matrix.size());
 		for (int j = 0; j < matrix.size(); j++) {
 			List<T> row = matrix.get(j);
+			System.err.println("row"+j + ", " + row.size());
 			row.remove(i);
 		}
 	}
@@ -64,6 +65,21 @@ public class DistanceMatrix<T extends Comparable<T>> {
 		}
 		
 		this.matrix.add(row);
+	}
+	
+	public String toString() {
+		String str = "";
+		
+		for (int i = 0; i < this.matrix.size(); i++) {
+			List<T> row = this.matrix.get(i);
+			for (int j = 0; j < row.size(); j++) {
+				str = str + ", " + row.get(j);
+			}
+			
+			str = str + "\n";
+		}
+		
+		return str;
 	}
 	
 	class Value implements Comparator<Value> {

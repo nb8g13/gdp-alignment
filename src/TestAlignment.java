@@ -33,8 +33,10 @@ public class TestAlignment {
 		alignments.addAll(prof2.getSequences());
 		Profile prof3 = new Profile(prof1, prof2, alignments);
 		Profile prof4 = new Profile(new Sequence("ACTAGCGG"));
+		Profile prof5 = new Profile(new Sequence("TGAATCCCGC"));
 		
-		Profile output = merger.merge(prof3,  prof4);
+		
+		Profile output = merger.merge(prof2,  prof5);
 		
 		System.out.println("Left child: " + prof3);
 		System.out.println("Right child: " + prof4);
