@@ -12,12 +12,14 @@ public class StartFirebase {
 		FileInputStream serviceAccount;
 		try {
 			serviceAccount = new FileInputStream(
-					"test-project-96190-firebase-adminsdk-f5lx8-3d82f9bd49.json");
+					"tmp\\test-project-96190-firebase-adminsdk-f5lx8-3d82f9bd49.json");
 			FirebaseOptions options = new FirebaseOptions.Builder()
 					.setCredentials(GoogleCredentials.fromStream(serviceAccount))
-					.setDatabaseUrl("https://test-project-96190.firbase.io.com/")
+					.setDatabaseUrl("https://test-project-96190.firebaseio.com/")
 					.build();
 			FirebaseApp.initializeApp(options);
+			System.out.println("Done connecting");
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

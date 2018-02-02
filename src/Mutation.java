@@ -1,19 +1,21 @@
 import java.util.Map;
 
 public class Mutation {
-	Map<String, String> o;
+	
+	Edit o;
 	String a;
 	long t; 
 	
+	
 	private Mutation() {}
 	
-	public Mutation(Map<String, String> o, String a, long t) {
+	public Mutation(Edit o, String a, long t) {
 		this.o = o;
 		this.a = a;
 		this.t= t;
 	}
 	
-	public Map<String, String> getO() {
+	public Edit getO() {
 		return o;
 	}
 	
@@ -25,7 +27,7 @@ public class Mutation {
 		return t;
 	}
 	
-	public void setO(Map<String, String> o) {
+	public void setO(Edit o) {
 		this.o = o;
 	}
 	
@@ -36,4 +38,13 @@ public class Mutation {
 	public void setT(long t) {
 		this.t= t;
 	}
+	
+	public String toString() {
+		String str = "";
+		str = str + "author: " + this.a + "\n";
+		str = str + "timestamp: " + this.t + "\n";
+		
+		return str;
+	}
+	
 }
