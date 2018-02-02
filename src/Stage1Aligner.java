@@ -9,7 +9,8 @@ public class Stage1Aligner implements Aligner {
 	public Stage1Aligner(SubstitutionMatrix sub) {
 		this.sub = sub;
 		this.ss = new PSP();
-		this.pm = new NMW(ss, sub);
+		//nmw -> MuscleMerger
+		this.pm = new MUSCLEMerge(ss, sub, new MUSCLEPenaliser(8, 1));
 		this.sim = new KmerMetric(3);
 	}
 	

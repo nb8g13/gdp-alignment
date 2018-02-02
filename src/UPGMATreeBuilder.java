@@ -24,6 +24,7 @@ public class UPGMATreeBuilder implements TreeBuilder {
 		}
 		
 		this.distanceMatrix = metric.getSimilarities(seqs);
+		System.out.println(this.distanceMatrix);
 		
 		this.profiles = new ArrayList<Profile>();
 		
@@ -38,14 +39,15 @@ public class UPGMATreeBuilder implements TreeBuilder {
 		
 		DistanceMatrix<Double>.Value mv = this.distanceMatrix.findMax();
 		
-		List<Double> row1 = this.distanceMatrix.getMatrix().get(mv.getRow());
-		List<Double> row2 = this.distanceMatrix.getMatrix().get(mv.getCol());
+		List<Double> row1 = new ArrayList<Double>(this.distanceMatrix.getMatrix().get(mv.getRow()));
+		List<Double> row2 = new ArrayList<Double>(this.distanceMatrix.getMatrix().get(mv.getCol()));
 		
 		row1.remove(mv.getCol());
 		row1.remove(mv.getRow());
 		
 		row2.remove(mv.getCol());
 		row2.remove(mv.getRow());
+		
 		
 		List<Double> newRow = new ArrayList<Double>();
 		
@@ -65,6 +67,7 @@ public class UPGMATreeBuilder implements TreeBuilder {
 		}
 		
 		else {
+			System.err.println(mv.getCol());
 			this.distanceMatrix.removeIndex(mv.getCol());
 			this.distanceMatrix.removeIndex(mv.getRow());
 			this.profiles.remove(mv.getCol());
@@ -73,11 +76,16 @@ public class UPGMATreeBuilder implements TreeBuilder {
 		
 		this.distanceMatrix.addElement(newRow);
 		
+		System.out.println(pro1);
+		System.out.println(pro2);
+		
 		Profile nextCluster = merger.merge(pro1,  pro2);
 		
 		this.profiles.add(0, nextCluster);
 		
-		return nextCluster();
+		System.out.println(nextCluster);
+		
+		return nextCluster;
 	}
 	
 	public boolean finished() {
@@ -87,6 +95,7 @@ public class UPGMATreeBuilder implements TreeBuilder {
 	public Profile clusterToCompletion() {
 		
 		while(profiles.size() > 1) {
+			System.out.println("profiles size: " + profiles.size());
 			nextCluster();
 		}
 		
