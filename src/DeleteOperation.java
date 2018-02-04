@@ -7,10 +7,12 @@ public class DeleteOperation implements Operation {
 		this.size = size;
 	}
 	
-	public void performOperation(Caption cap) {
-		StringBuilder sb = new StringBuilder(cap.getText());
-		sb.delete(cap.pos, cap.getPos() + size);
-		cap.setText(sb.toString());
+	public Caption performOperation(String text, Edit edit, double reputation) {
+		StringBuilder sb = new StringBuilder(text);
+		sb.delete(edit.getPos(), edit.getPos() + size);
+		Caption cap = new Caption(sb.toString(), reputation);
+
+		return cap;
 	}
 	
 	public String toString() {

@@ -7,8 +7,10 @@ public class CursorOperation implements Operation {
 		this.move = move;
 	}
 	
-	public void performOperation(Caption cap) {
-		cap.setPos(cap.getPos() + move);
+	public Caption performOperation(String text, Edit edit, double reputation) {
+		Caption cap = new Caption(text, reputation);
+		edit.setPos(edit.getPos()+move);
+		return cap;
 	}
 	
 	public String toString() {

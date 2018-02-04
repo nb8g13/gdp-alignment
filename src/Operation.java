@@ -1,4 +1,4 @@
 
 public interface Operation {
-	public void performOperation(Caption cap);
+	public Caption performOperation(String text, Edit edit, double reputation);
 }

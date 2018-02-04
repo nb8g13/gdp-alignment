@@ -3,10 +3,16 @@ public class Caption {
 	String text;
 	double reputation;
 	int pos = 0;
+	long t = 0;
 	
 	public Caption(String original, double reputation) {
 		this.text = original;
 		this.reputation = reputation;
+	}
+	
+	public Caption(String original, double reputation, long t) {
+		this(original, reputation);
+		this.t = t;
 	}
 	
 	public String capsNoPunctuation() {
@@ -39,5 +45,13 @@ public class Caption {
 	
 	public void setPos(int pos) {
 		this.pos = pos;
+	}
+	
+	public long getT() {
+		return t;
+	}
+	
+	public void setT(long t) {
+		this.t = t;
 	}
 }

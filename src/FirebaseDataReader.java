@@ -68,15 +68,28 @@ public class FirebaseDataReader {
 					mutations.add(createMutation(childSnapshot));
 				}
 				
+				/*
 				System.out.println("-------------------------------------------------------");
 				for(Mutation mut : mutations) {
 					System.out.println(mut.getO());
-					mut.getO().applyEdit(cap);
+					cap = mut.getO().applyEdit(cap, 0.0);
 					System.out.println(cap.getText());
 					System.out.println("\n");
 				}
 				
 				System.out.println(cap.capsNoPunctuation());
+				*/
+				
+				
+				CaptionFilter filter = new FinishedCaptionFilter();
+				HistoryGenerator hg = new CaptionHistoryGenerator(new LastEditorReputation());
+				List<Caption> captions = hg.getHistory(mutations);
+				System.out.println("captions found");
+				List<Caption> candidates = filter.filter(mutations, captions);
+				
+				for( int i = 0; i < candidates.size(); i++) {
+					System.out.println(candidates.get(i).getText());
+				}
 				
 				done = true;
 				

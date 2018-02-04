@@ -4,7 +4,8 @@ import java.util.List;
 public class Edit {
 	
 	List<Operation> operations;
-	
+	int pos = 0;
+
 	public Edit(List<Operation> ops) {
 		this.operations = ops;
 	}
@@ -18,13 +19,22 @@ public class Edit {
 		return str;
 	}
 	
-	public void applyEdit(Caption caption) {
+	public Caption applyEdit(Caption caption, double reputation) {
 		Iterator<Operation> iter = this.operations.iterator();
 		while(iter.hasNext()) {
 			Operation op = iter.next();
-			op.performOperation(caption);
+			caption = op.performOperation(caption.getText(), this, reputation);
 		}
+		caption.setPos(0);
+		return caption;
 		
-		caption.setPos(0);	
+	}
+	
+	public int getPos() {
+		return this.pos;
+	}
+	
+	public void setPos(int pos) {
+		this.pos = pos;
 	}
 }

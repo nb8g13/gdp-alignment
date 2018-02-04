@@ -7,10 +7,11 @@ public class InsertOperation implements Operation {
 		this.insertion = insertion;
 	}
 	
-	public void performOperation(Caption cap) {
-		StringBuilder sb = new StringBuilder(cap.getText());
-		sb.insert(cap.getPos(), insertion);
-		cap.setText(sb.toString());
+	public Caption performOperation(String text, Edit edit, double reputation) {
+		StringBuilder sb = new StringBuilder(text);
+		sb.insert(edit.getPos(), insertion);
+		Caption cap = new Caption(sb.toString(), reputation);
+		return cap;
 	}
 	
 	public String toString() {
