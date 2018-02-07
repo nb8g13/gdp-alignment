@@ -46,10 +46,8 @@ public class DistanceMatrix<T extends Comparable<T>> {
 	public void removeIndex(int i) {
 		//System.out.println(this);
 		matrix.remove(i);
-		System.err.println(matrix.size());
 		for (int j = 0; j < matrix.size(); j++) {
 			List<T> row = matrix.get(j);
-			System.err.println("row"+j + ", " + row.size());
 			row.remove(i);
 		}
 	}
@@ -64,7 +62,7 @@ public class DistanceMatrix<T extends Comparable<T>> {
 			current.add(0, row.get(i+1));
 		}
 		
-		this.matrix.add(row);
+		this.matrix.add(0, row);
 	}
 	
 	public String toString() {
@@ -110,7 +108,8 @@ public class DistanceMatrix<T extends Comparable<T>> {
 			
 			int compVal = arg0.getValue().compareTo(arg1.getValue());
 			
-			if (compVal < 0) {
+			return compVal;
+			/*if (compVal < 0) {
 				return -1;
 			}
 			
@@ -119,8 +118,8 @@ public class DistanceMatrix<T extends Comparable<T>> {
 			}
 			
 			else {
-				return -1;
-			}
+				return 1;
+			}*/
 		}
 		
 		public boolean equals(Object o) {

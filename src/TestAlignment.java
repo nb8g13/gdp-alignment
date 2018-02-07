@@ -19,15 +19,16 @@ public class TestAlignment {
 			}
 		}
 		
-		SubstitutionMatrix subs = new SubstitutionMatrix(alphabet, subMatrix, 8.0);
+		SubstitutionMatrix subs = new SubstitutionMatrix(alphabet, subMatrix);
 		
 		ScoringSystem psp = new PSP();
 		
-		GapPenalty penaliser = new MUSCLEPenaliser(8, 1);
+		GapPenalty penaliser = new MUSCLEPenaliser(-8, 1);
 		
 		ProfileMerger merger = new MUSCLEMerge(psp, subs, penaliser);
 		
-		Profile prof1 = new Profile(new Sequence("ATAT-CCGG"));
+		Profile prof1 = new Profile(new Sequence("AAA"));
+		Profile profSame = new Profile(new Sequence("AAA"));
 		Profile prof2 = new Profile(new Sequence("ATATCCCGG"));
 		List<Sequence> alignments = new ArrayList<Sequence>(prof1.getSequences());
 		alignments.addAll(prof2.getSequences());
@@ -36,10 +37,10 @@ public class TestAlignment {
 		Profile prof5 = new Profile(new Sequence("TGAATCCCGC"));
 		
 		
-		Profile output = merger.merge(prof2,  prof5);
+		Profile output = merger.merge(prof1,  profSame);
 		
-		System.out.println("Left child: " + prof3);
-		System.out.println("Right child: " + prof4);
+		System.out.println("Left child: " + prof1);
+		System.out.println("Right child: " + profSame);
 		System.out.println("Alignment: " + output);
 	}
 }

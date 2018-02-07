@@ -26,8 +26,16 @@ public class PSP implements ScoringSystem {
 		
 		for (int i = 0; i < subs.alphabetSize(); i++) {
 			for (int j = 0; j < subs.alphabetSize(); j++) {
+				if (i== 0 && j == 0 && col1 == 0 && col2 == 0) {
+					System.out.println("subscore: " + subs.getSubScore(i, j));
+				}
 				sum += fxy[i][0] * fxy[j][1] * subs.getSubScore(i, j);
 			}
+		}
+		
+		if(col1 == 1 && col2 == 1) {
+			System.out.println("fxy:");
+			System.out.println(Arrays.deepToString(fxy));
 		}
 		
 		//System.out.println("Printing X frequencies: " + fxy[0][0] +", " + fxy[1][0] +", "+ fxy[2][0] +","+  fxy[3][0]);

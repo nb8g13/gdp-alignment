@@ -1,9 +1,14 @@
 public class Sequence {
 	
 	String seq;
-	
+	int index;
 	public Sequence(String seq) {
 		this.seq = seq;
+		index=99;
+	}
+	public Sequence(String seq,int index) {
+		this.seq = seq;
+		this.index=index;
 	}
 	
 	public String getSeq() {
@@ -16,5 +21,9 @@ public class Sequence {
 	
 	public String toString() {
 		return this.getSeq();
+	}
+	
+	public int getIndex() {
+		return this.index;
 	}
 }

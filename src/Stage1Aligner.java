@@ -10,7 +10,7 @@ public class Stage1Aligner implements Aligner {
 		this.sub = sub;
 		this.ss = new PSP();
 		//nmw -> MuscleMerger
-		this.pm = new MUSCLEMerge(ss, sub, new MUSCLEPenaliser(8, 1));
+		this.pm = new MUSCLEMerge(ss, sub, new MUSCLEPenaliser(-8, 1));
 		this.sim = new KmerMetric(3);
 	}
 	
@@ -19,7 +19,13 @@ public class Stage1Aligner implements Aligner {
 		
 		TreeBuilder tb = new UPGMATreeBuilder(strs, this.sim, this.pm);
 		
+		
+		
 		Profile finalProfile = tb.clusterToCompletion();
+		
+		for (int i=0; i<finalProfile.getSequences().size(); i++) {
+			System.out.println(finalProfile.getSequences().get(i).getIndex());
+		}
 		
 		String[] alignments = new String[finalProfile.getSequences().size()];
 		

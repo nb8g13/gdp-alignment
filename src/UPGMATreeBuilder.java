@@ -20,17 +20,23 @@ public class UPGMATreeBuilder implements TreeBuilder {
 		
 		List<Sequence> seqs = new ArrayList<Sequence>();
 		for (int i = 0; i < strings.length; i++) {
-			seqs.add(new Sequence(strings[i]));
+			seqs.add(new Sequence(strings[i], i));
 		}
 		
 		this.distanceMatrix = metric.getSimilarities(seqs);
-		System.out.println(this.distanceMatrix);
 		
 		this.profiles = new ArrayList<Profile>();
 		
 		for (int i = 0; i < strings.length; i++) {
 			profiles.add(new Profile(seqs.get(i)));
 		}
+		
+		//For testing sequence tracking
+		System.out.println("wrapping in profiles");
+		for (int i=0; i<profiles.size(); i++) {
+			System.out.println(profiles.get(i).getSequences().get(0).getIndex());
+		}
+		
 	}
 	
 
@@ -38,6 +44,7 @@ public class UPGMATreeBuilder implements TreeBuilder {
 	public Profile nextCluster() {
 		
 		DistanceMatrix<Double>.Value mv = this.distanceMatrix.findMax();
+		
 		
 		List<Double> row1 = new ArrayList<Double>(this.distanceMatrix.getMatrix().get(mv.getRow()));
 		List<Double> row2 = new ArrayList<Double>(this.distanceMatrix.getMatrix().get(mv.getCol()));
@@ -66,8 +73,7 @@ public class UPGMATreeBuilder implements TreeBuilder {
 			this.profiles.remove(mv.getCol());
 		}
 		
-		else {
-			System.err.println(mv.getCol());
+		else {			
 			this.distanceMatrix.removeIndex(mv.getCol());
 			this.distanceMatrix.removeIndex(mv.getRow());
 			this.profiles.remove(mv.getCol());
@@ -75,16 +81,20 @@ public class UPGMATreeBuilder implements TreeBuilder {
 		}
 		
 		this.distanceMatrix.addElement(newRow);
-		
-		System.out.println(pro1);
-		System.out.println(pro2);
+			
 		
 		Profile nextCluster = merger.merge(pro1,  pro2);
 		
 		this.profiles.add(0, nextCluster);
-		
-		System.out.println(nextCluster);
-		
+		for(int i=0;i<profiles.size();i++) {
+			Profile currentProf=profiles.get(i);
+			System.out.print("Profile "+i+":");
+			for(int j=0;j<currentProf.getSequences().size();j++) {
+				System.out.print(currentProf.getSequences().get(j).getIndex()+", ");
+			}
+			System.out.println("");
+		}
+		System.out.println("NEXT CLUSTER");
 		return nextCluster;
 	}
 	
@@ -95,7 +105,6 @@ public class UPGMATreeBuilder implements TreeBuilder {
 	public Profile clusterToCompletion() {
 		
 		while(profiles.size() > 1) {
-			System.out.println("profiles size: " + profiles.size());
 			nextCluster();
 		}
 		

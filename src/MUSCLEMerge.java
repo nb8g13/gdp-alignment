@@ -18,13 +18,31 @@ public class MUSCLEMerge implements ProfileMerger {
 	
 	public Profile merge(Profile left, Profile right) {
 		
+		System.out.println("Start of Merge");
+		System.out.println("Left");
+		for (int i=0;i<left.getSequences().size();i++) {
+			System.out.println(left.getSequences().get(i).getIndex());
+		}
+		System.out.println("Right");
+		for (int i=0;i<right.getSequences().size();i++) {
+			System.out.println(right.getSequences().get(i).getIndex());
+		}
+		
 		int rows = left.getSequences().get(0).getSeq().length();
 		int cols = right.getSequences().get(0).getSeq().length();
 		
 		List<Double> leftOpens = this.gp.openCost(left);
+		System.out.println("left opens");
+		this.printLists(leftOpens);
 		List<Double> rightOpens = this.gp.openCost(right);
+		System.out.println("right opens");
+		this.printLists(rightOpens);
 		List<Double> leftCloses = this.gp.closeCost(left);
+		System.out.println("left closes");
+		this.printLists(leftCloses);
 		List<Double> rightCloses = this.gp.closeCost(right);
+		System.out.println("right closes");
+		this.printLists(rightCloses);
 		
 		// Stops error thrown at x = 1 and y = 1
 		leftCloses.add(0,0.0);
@@ -57,6 +75,9 @@ public class MUSCLEMerge implements ProfileMerger {
 				
 				// Pick new M value
 				double sxy = scoring.score(left.getSequences(), right.getSequences(), this.subs, i-1, j-1);
+				if(i==1 && j==1) {
+					System.out.println("first sxy: " + sxy);
+				}
 				// Will cause index out of bounds right now
 				double[] mOptions = {D[i-1][j-1] + leftCloses.get(i-1), I[i-1][j-1] + rightCloses.get(j-1), M[i-1][j-1]};
 				M[i][j] = this.maxValue(mOptions) + sxy;
@@ -83,6 +104,14 @@ public class MUSCLEMerge implements ProfileMerger {
 			rightAlignments[i] = "";
 		}
 		
+		
+		System.out.println("M:");
+		System.out.println(Arrays.deepToString(M));
+		System.out.println("D:");
+		System.out.println(Arrays.deepToString(D));
+		System.out.println("I:");
+		System.out.println(Arrays.deepToString(I));
+		
 		int x = rows;
 		int y = cols;
 		
@@ -90,8 +119,9 @@ public class MUSCLEMerge implements ProfileMerger {
 			double[] options = {M[x][y], D[x][y], I[x][y]};
 			double max = this.maxValue(options);
 			
+			System.out.println("max value:" + max);
+			
 			if(max == M[x][y]) {
-				//System.out.println("y: " + y);
 				this.prependLetters(leftAlignments, left, x-1);
 				this.prependLetters(rightAlignments, right, y-1);
 				x--;
@@ -128,8 +158,17 @@ public class MUSCLEMerge implements ProfileMerger {
 			}
 		}
 		
+		for(int i = 0; i < leftAlignments.length; i++) {
+			System.out.println("Left alignment " + i + ": " + leftAlignments[i]);
+		}
+		
+		
+		for(int i = 0; i < rightAlignments.length; i++) {
+			System.out.println("right alignment " + i + ": " + rightAlignments[i]);
+		}
+		
 		//Create all aligned sequences in one list
-		List<Sequence> alignments = toSequenceList(rightAlignments, toSequenceList(leftAlignments, new ArrayList<Sequence>()));
+		List<Sequence> alignments = toSequenceList(rightAlignments, toSequenceList(leftAlignments, new ArrayList<Sequence>(), left),right);
 		
 		Profile parent = new Profile(left, right, alignments);
 		
@@ -162,12 +201,17 @@ public class MUSCLEMerge implements ProfileMerger {
 		}
 	}
 	
-	public List<Sequence> toSequenceList(String[] arr, List<Sequence> sequences) {
+	public List<Sequence> toSequenceList(String[] arr, List<Sequence> sequences, Profile profile) {
 		for(int i = 0; i < arr.length; i++) {
-			sequences.add(new Sequence(arr[i]));
+			sequences.add(new Sequence(arr[i],profile.getSequences().get(i).getIndex()));
 		}
-		
 		return sequences;
+	}
+	
+	public void printLists(List<Double> list) {
+		for(int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
+		}
 	}
 	
 }

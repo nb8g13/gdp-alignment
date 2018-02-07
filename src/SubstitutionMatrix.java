@@ -15,12 +15,11 @@ public class SubstitutionMatrix {
 	
 	Map<Character, Integer> indexMap = new HashMap<Character, Integer>();
 	double[][] subMatrix;
-	double delete;
 	
-	public SubstitutionMatrix(String str, double[][] subMatrix, double del) {
+	public SubstitutionMatrix(String str, double[][] subMatrix) {
 		this.populateIndexMap(str);
 		this.subMatrix = subMatrix;
-		this.delete = del;
+		//this.delete = del;
 	}
 	
 	//TODO: Change encoding to UTF-8
@@ -77,9 +76,10 @@ public class SubstitutionMatrix {
 		return this.subMatrix[i][j];
 	}
 	
+	/* bitch
 	public double deletionCost() {
 		return this.delete;
-	}
+	}*/
 	
 	public int charToIndex(char c) {
 		return indexMap.get(c);
