@@ -2,6 +2,8 @@ public class Sequence {
 	
 	String seq;
 	int index;
+	double rep = 0.0;
+	
 	public Sequence(String seq) {
 		this.seq = seq;
 		index=99;
@@ -9,6 +11,11 @@ public class Sequence {
 	public Sequence(String seq,int index) {
 		this.seq = seq;
 		this.index=index;
+	}
+	public Sequence(String seq,int index,double rep) {
+		this.seq = seq;
+		this.index=index;
+		this.rep=rep;
 	}
 	
 	public String getSeq() {
@@ -25,5 +32,9 @@ public class Sequence {
 	
 	public int getIndex() {
 		return this.index;
+	}
+	
+	public double getRep() {
+		return rep;
 	}
 }

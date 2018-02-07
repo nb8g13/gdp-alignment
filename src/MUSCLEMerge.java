@@ -203,7 +203,7 @@ public class MUSCLEMerge implements ProfileMerger {
 	
 	public List<Sequence> toSequenceList(String[] arr, List<Sequence> sequences, Profile profile) {
 		for(int i = 0; i < arr.length; i++) {
-			sequences.add(new Sequence(arr[i],profile.getSequences().get(i).getIndex()));
+			sequences.add(new Sequence(arr[i],profile.getSequences().get(i).getIndex(), profile.getSequences().get(i).getRep()));
 		}
 		return sequences;
 	}

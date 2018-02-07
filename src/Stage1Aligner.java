@@ -10,14 +10,14 @@ public class Stage1Aligner implements Aligner {
 		this.sub = sub;
 		this.ss = new PSP();
 		//nmw -> MuscleMerger
-		this.pm = new MUSCLEMerge(ss, sub, new MUSCLEPenaliser(-8, 1));
+		this.pm = new MUSCLEMerge(ss, sub, new MUSCLEPenaliser(-1, 1));
 		this.sim = new KmerMetric(3);
 	}
 	
 	@Override
-	public String[] align(String[] strs) {
+	public String[] align(String[] strs, double[] reps) {
 		
-		TreeBuilder tb = new UPGMATreeBuilder(strs, this.sim, this.pm);
+		TreeBuilder tb = new UPGMATreeBuilder(strs, this.sim, this.pm, reps);
 		
 		
 		

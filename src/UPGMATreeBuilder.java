@@ -10,7 +10,7 @@ public class UPGMATreeBuilder implements TreeBuilder {
 	List<Profile> profiles;
 	ProfileMerger merger;
 	
-	public UPGMATreeBuilder(String[] strings, SimilarityMetric<Double> metric, ProfileMerger merger) {
+	public UPGMATreeBuilder(String[] strings, SimilarityMetric<Double> metric, ProfileMerger merger, double[] reps) {
 		
 		this.metric = metric;
 		//Fix capacity here?
@@ -20,7 +20,7 @@ public class UPGMATreeBuilder implements TreeBuilder {
 		
 		List<Sequence> seqs = new ArrayList<Sequence>();
 		for (int i = 0; i < strings.length; i++) {
-			seqs.add(new Sequence(strings[i], i));
+			seqs.add(new Sequence(strings[i], i, reps[i]));
 		}
 		
 		this.distanceMatrix = metric.getSimilarities(seqs);
@@ -84,6 +84,8 @@ public class UPGMATreeBuilder implements TreeBuilder {
 			
 		
 		Profile nextCluster = merger.merge(pro1,  pro2);
+		System.out.println("NEXT CLUSTER");
+		nextCluster.sortSequences();
 		
 		this.profiles.add(0, nextCluster);
 		for(int i=0;i<profiles.size();i++) {
@@ -94,7 +96,6 @@ public class UPGMATreeBuilder implements TreeBuilder {
 			}
 			System.out.println("");
 		}
-		System.out.println("NEXT CLUSTER");
 		return nextCluster;
 	}
 	
