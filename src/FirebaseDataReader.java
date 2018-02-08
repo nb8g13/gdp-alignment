@@ -15,14 +15,22 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.Transaction;
 import com.google.firebase.database.Transaction.Result;
 
+//Confused not finished captions
 
-//Main control class for reading in mutations for a caption, reading in the mutations, performing the alignment
-//and then updating the snapshot
+/**
+ * Main control class for reading in mutations for a caption, reading in the mutations, performing the alignment
+ * and then updating the snapshot
+ * @author LukeStacey
+ *
+ */
 public class FirebaseDataReader {
 	
 	ConsensusAlgorithm ca;
 	boolean done = false;
-	
+	/**
+	 * Consturctor
+	 * @param ca Concensus algorithm to be used
+	 */
 	public FirebaseDataReader(ConsensusAlgorithm ca) {
 		this.ca = ca;
 	}

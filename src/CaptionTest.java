@@ -1,4 +1,8 @@
-
+/**
+ * Class for testing captions work
+ * @author LukeStacey
+ *
+ */
 public class CaptionTest {
 	public static void main(String[] args) {
 		Caption cap = new Caption("letting hello worl participants or employees within those firms", 1.0);

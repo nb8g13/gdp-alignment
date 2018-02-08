@@ -1,6 +1,11 @@
 import java.util.List;
 
 //Can't be implemented until logins are implemented
+/**
+ * Class for assigning higher reputation to the latest edit
+ * @author LukeStacey
+ *
+ */
 public class LastEditorReputation implements ReputationAssigner {
 
 	@Override

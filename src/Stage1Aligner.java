@@ -1,11 +1,18 @@
-
+/**
+ * Class for aligning a set of strings
+ * @author LukeStacey
+ *
+ */
 public class Stage1Aligner implements Aligner {
 	
 	SubstitutionMatrix sub;
 	ProfileMerger pm;
 	ScoringSystem ss;
 	SimilarityMetric<Double> sim;
-	
+	/**
+	 * Constructor
+	 * @param sub substitution matrix to be used
+	 */
 	public Stage1Aligner(SubstitutionMatrix sub) {
 		this.sub = sub;
 		this.ss = new PSP();
@@ -14,7 +21,12 @@ public class Stage1Aligner implements Aligner {
 		this.sim = new KmerMetric(3);
 	}
 	
-	@Override
+	/**
+	 * Aligns a set of strings
+	 * @param strs array of strings to be aligned
+	 * @param reps array of reputations associated with strings
+	 * @return  list of aligned strings with preserved ordering
+	 */
 	public String[] align(String[] strs, double[] reps) {
 		
 		TreeBuilder tb = new UPGMATreeBuilder(strs, this.sim, this.pm, reps);

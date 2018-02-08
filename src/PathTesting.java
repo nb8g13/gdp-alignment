@@ -11,7 +11,11 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.opencsv.CSVReader;
-
+/**
+ * Test class for accessing files and handling exceptions
+ * @author LukeStacey
+ *
+ */
 public class PathTesting {
 	public static void main(String[] args) {
 		/*System.out.println(Paths.get("tmp\\config.txt"));
