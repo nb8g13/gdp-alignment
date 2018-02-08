@@ -3,19 +3,35 @@ import java.util.Arrays;
 import java.util.List;
 
 //Need to refactor and retain author history - or keep originals
+/**
+ * Merges profiles together, includes the main function, merge, and a couple others that it needs
+ * @author lhs2g14
+ *
+ */
 public class MUSCLEMerge implements ProfileMerger {
 	
 	ScoringSystem scoring;
 	SubstitutionMatrix subs;
 	GapPenalty gp;
-	
+	/**
+	 * Constructor. 
+	 * @param scoring ScoringSystem object. Decides how the substitution matrix will be used.
+	 * @param subs SubstitionMatrix object. Used by the scoring system. Has the alphabet and matrix of sub costs in
+	 * @param gp GapPenalty object. Encapsulates the system of scoring and penalising gaps.
+	 * @return a MUSCLEMerge object
+	 */
 	public MUSCLEMerge(ScoringSystem scoring, SubstitutionMatrix subs, GapPenalty gp) {
 		this.scoring = scoring;
 		this.subs = subs;
 		this.subs.adjustByExtension(gp.extenstionCost());
 		this.gp = gp;
 	}
-	
+	/**
+	 * Main Merge function. Merges together two profiles using NeedleMan Wunsh and the given scoring, gap, and substitution methods
+	 * @param left One of the profiles to be merged
+	 * @param right The other profiles to be merged
+	 * @return a single profile containing all the input profile's sequences but aligned to be the same length
+	 */
 	public Profile merge(Profile left, Profile right) {
 		
 		/*
@@ -177,7 +193,11 @@ public class MUSCLEMerge implements ProfileMerger {
 	
 	}
 	
-	
+	/**
+	 * Returns the largest value in a list of doubles
+	 * @param arr a list of doubles
+	 * @return the largest value
+	 */
 	public double maxValue(double[] arr) {
 		double max = arr[0];
 		
@@ -189,26 +209,43 @@ public class MUSCLEMerge implements ProfileMerger {
 		
 		return max;
 	}
-	
+	/**
+	 * Prepends a profile's sequences' characters to some semi built aligned strings. 
+	 * @param arr an array of semi built aligned strings
+	 * @param prof the profile those strings belong to
+	 * @param idx the index of the character in the profile's strings that needs prepending
+	 */
 	public void prependLetters(String[] arr, Profile prof, int idx) {
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = prof.getSequences().get(i).getSeq().charAt(idx) + arr[i];
 		}
 	}
-	
+	/**
+	 * Puts a space on the front of a list of strings
+	 * @param arr an array of semi built aligned strings
+	 */
 	public void prependSpace(String[] arr) {
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = '-' + arr[i];
 		}
 	}
-	
+	/**
+	 * Wraps up an array of strings in sequence objects and adds them to a sequence List. preserves their index and reputation
+	 * @param arr an array of strings
+	 * @param sequences list of sequences that the strings will be added to
+	 * @param profile the profile containing the strings and their index and rep values
+	 * @return the given sequence list with all the strings in arr added to it
+	 */
 	public List<Sequence> toSequenceList(String[] arr, List<Sequence> sequences, Profile profile) {
 		for(int i = 0; i < arr.length; i++) {
 			sequences.add(new Sequence(arr[i],profile.getSequences().get(i).getIndex(), profile.getSequences().get(i).getRep()));
 		}
 		return sequences;
 	}
-	
+	/**
+	 * Prints each element in a list	 
+	 * @param list the list of items to be printed
+	 */
 	public void printLists(List<Double> list) {
 		for(int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
