@@ -23,9 +23,10 @@ public class Stage1Aligner implements Aligner {
 		
 		Profile finalProfile = tb.clusterToCompletion();
 		
+		/*
 		for (int i=0; i<finalProfile.getSequences().size(); i++) {
 			System.out.println(finalProfile.getSequences().get(i).getIndex());
-		}
+		}*/
 		
 		String[] alignments = new String[finalProfile.getSequences().size()];
 		

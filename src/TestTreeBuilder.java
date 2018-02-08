@@ -23,7 +23,7 @@ public class TestTreeBuilder {
 		Stage1Aligner aligner = new Stage1Aligner(subs);
 		//String[] sequences = {"HERE-ANNOUNCE-ANOTHER-LIGHT-CHEESE", "FROM-HERE-ON-IN-I-WILL-TURN-OFF-THE-LIGHTS-AND-CUT-TO-THE-CHASE", "FROM-HERE-ON-IN-I-WILL-TURN-OFF-THE-LIGHTS-AND-UP-TO-THE-CHEESE"};
 		String[] sequences = {"HERE ANNOUNCE ANOTHER LIGHT CHEESE", "FROM HERE ON IN I WILL TURN OFF THE LIGHTS AND CUT TO THE CHASE", "FROM HERE ON IN I WILL TURN OFF THE LIGHTS AND UP TO THE CHEESE"};
-		double[] reps = {0, 1000000000, 0};
+		double[] reps = {0, 0, 0};
 		
 		String[] alignments = aligner.align(sequences, reps);
 		

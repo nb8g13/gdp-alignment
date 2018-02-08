@@ -6,7 +6,7 @@ public class Sequence {
 	
 	public Sequence(String seq) {
 		this.seq = seq;
-		index=99;
+		index = -1;
 	}
 	public Sequence(String seq,int index) {
 		this.seq = seq;

@@ -8,6 +8,4 @@ public class LastEditorReputation implements ReputationAssigner {
 		// TODO Auto-generated method stub
 		return 0.0;
 	}
-	
-	
 }

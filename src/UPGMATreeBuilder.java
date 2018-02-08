@@ -32,10 +32,12 @@ public class UPGMATreeBuilder implements TreeBuilder {
 		}
 		
 		//For testing sequence tracking
+		/*
 		System.out.println("wrapping in profiles");
 		for (int i=0; i<profiles.size(); i++) {
 			System.out.println(profiles.get(i).getSequences().get(0).getIndex());
 		}
+		*/
 		
 	}
 	
@@ -84,17 +86,19 @@ public class UPGMATreeBuilder implements TreeBuilder {
 			
 		
 		Profile nextCluster = merger.merge(pro1,  pro2);
-		System.out.println("NEXT CLUSTER");
+		//System.out.println("NEXT CLUSTER");
 		nextCluster.sortSequences();
 		
 		this.profiles.add(0, nextCluster);
-		for(int i=0;i<profiles.size();i++) {
-			Profile currentProf=profiles.get(i);
+		for(int i=0; i<profiles.size(); i++) {
+			Profile currentProf = profiles.get(i);
+			/*
 			System.out.print("Profile "+i+":");
 			for(int j=0;j<currentProf.getSequences().size();j++) {
 				System.out.print(currentProf.getSequences().get(j).getIndex()+", ");
 			}
 			System.out.println("");
+			*/
 		}
 		return nextCluster;
 	}

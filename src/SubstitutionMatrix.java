@@ -76,10 +76,6 @@ public class SubstitutionMatrix {
 		return this.subMatrix[i][j];
 	}
 	
-	/* bitch
-	public double deletionCost() {
-		return this.delete;
-	}*/
 	
 	public int charToIndex(char c) {
 		return indexMap.get(c);
@@ -95,6 +91,24 @@ public class SubstitutionMatrix {
 				this.subMatrix[i][j] += 2*ext;
 			}
 		}
+	}
+	
+	public static SubstitutionMatrix LEVENSHTEIN(String alphabet) {
+		double[][] mat = new double[alphabet.length()][alphabet.length()];
+		
+		for(int i = 0; i < alphabet.length(); i++) {
+			for (int j = 0; j < alphabet.length(); j++) {
+				if(i == j) {
+					mat[i][j] = 0.0;
+				}
+				
+				else {
+					mat[i][j] = -1.0;
+				}
+			}
+		}
+		
+		return new SubstitutionMatrix(alphabet, mat);
 	}
 	
 }

@@ -2,5 +2,5 @@ import java.util.List;
 
 public interface ConsensusAlgorithm {
 	
-	public Mutation getConsensus(List<Mutation> mutations);
+	public String getConsensus(List<Mutation> mutations);
 }

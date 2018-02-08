@@ -107,19 +107,7 @@ public class DistanceMatrix<T extends Comparable<T>> {
 		public int compare(Value arg0, Value arg1) {
 			
 			int compVal = arg0.getValue().compareTo(arg1.getValue());
-			
 			return compVal;
-			/*if (compVal < 0) {
-				return -1;
-			}
-			
-			else if (compVal == 0) {
-				return 0;
-			}
-			
-			else {
-				return 1;
-			}*/
 		}
 		
 		public boolean equals(Object o) {
