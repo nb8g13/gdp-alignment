@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,16 +32,25 @@ public class FirebaseDataReader {
 	
 		DatabaseReference ref = FirebaseDatabase
 				.getInstance()
-				.getReference("/transcripts/" + transcriptKey +"/" + captionKey + "/unlocked");
+				.getReference("/transcripts/" + transcriptKey + "/lock");
 		
 		
-		ref.setValueAsync("false", new DatabaseReference.CompletionListener() {
+		ref.setValueAsync(true, new DatabaseReference.CompletionListener() {
 
 			@Override
 			public void onComplete(DatabaseError arg0, DatabaseReference arg1) {
+				
 				getMutationList(transcriptKey, captionKey);
 			}
 		});
+		
+	}
+	
+	public void waitForUsers(String transcriptKey) {
+		DatabaseReference ref = FirebaseDatabase
+				.getInstance()
+				.getReference("/transcripts/" + transcriptKey + "/users");
+	
 		
 	}
 	
@@ -69,36 +79,16 @@ public class FirebaseDataReader {
 					mutations.add(createMutation(childSnapshot));
 				}
 				
-				String winner = ca.getConsensus(mutations);
+				HistoryGenerator hg = new CaptionHistoryGenerator(new LastEditorReputation());
+				List<Caption> captions = hg.getHistory(mutations);
+				String winner = ca.getConsensus(mutations, captions);
 				System.out.println(winner);
 				
+				ReputationAward awarder = new LevenshteinReward();
+				
+				awarder.award(winner, mutations, captions);
+				
 				done = true;
-				
-				//Not testable yet...
-				//Mutation mutation = ca.getConsensus(mutations);
-				
-				
-				/*
-				//Work out what label to give to mutation
-				Long newTotal = snapshot.getChildrenCount() + 1;
-				String newKey = Long.toHexString(newTotal);
-				
-				
-				DatabaseReference cref = ref.child(newKey);
-				
-				cref.setValueAsync(mutation, new DatabaseReference.CompletionListener()  {
-					
-					@Override
-					public void onComplete(DatabaseError err, DatabaseReference snapshot) {
-						DatabaseReference lockref = FirebaseDatabase
-							.getInstance()
-							.getReference("/transcripts/" + transcriptKey +"/" + captionKey + "/unlocked");
-						
-						lockref.setValueAsync("true");
-					}
-				});
-				*/
-				
 			}
 			
 			public Mutation createMutation(DataSnapshot snapshot) {

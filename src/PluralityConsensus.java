@@ -2,7 +2,6 @@ import java.util.List;
 
 public class PluralityConsensus implements ConsensusAlgorithm {
 	
-	HistoryGenerator hg = new CaptionHistoryGenerator(new LastEditorReputation());
 	CaptionFilter cf = new FinishedCaptionFilter();
 	Aligner aligner;
 	CaptionCleaner cleaner;
@@ -15,8 +14,7 @@ public class PluralityConsensus implements ConsensusAlgorithm {
 	}
 	
 	@Override
-	public String getConsensus(List<Mutation> mutations) {
-		List<Caption> captions = hg.getHistory(mutations);
+	public String getConsensus(List<Mutation> mutations, List<Caption> captions) {
 		List<Caption> candidates = cf.filter(mutations, captions);
 		String[] text = new String[candidates.size()];
 		double[] reps = new double[candidates.size()];

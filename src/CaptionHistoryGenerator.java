@@ -13,15 +13,14 @@ public class CaptionHistoryGenerator implements HistoryGenerator {
 	@Override
 	public List<Caption> getHistory(List<Mutation> mutations) {
 		Iterator<Mutation> iter = mutations.iterator();
-		List<Mutation> seen = new ArrayList<Mutation>();
+		//List<Mutation> seen = new ArrayList<Mutation>();
 		List<Caption> captions = new ArrayList<Caption>();
 		
 		Caption cap = new Caption("", 0.0);
-		
 		while(iter.hasNext()) {
 			Mutation current = iter.next();
-			seen.add(current);
-			cap = current.getO().applyEdit(cap, ra.calculateReputation(seen));
+			//seen.add(current);
+			cap = current.getO().applyEdit(cap, ra.calculateReputation(current));
 			captions.add(cap);
 		}
 		

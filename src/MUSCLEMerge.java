@@ -158,7 +158,8 @@ public class MUSCLEMerge implements ProfileMerger {
 			}
 		}
 		
-		/*
+		
+		
 		for(int i = 0; i < leftAlignments.length; i++) {
 			System.out.println("Left alignment " + i + ": " + leftAlignments[i]);
 		}
@@ -166,7 +167,7 @@ public class MUSCLEMerge implements ProfileMerger {
 		
 		for(int i = 0; i < rightAlignments.length; i++) {
 			System.out.println("right alignment " + i + ": " + rightAlignments[i]);
-		}*/
+		}
 		
 		//Create all aligned sequences in one list
 		List<Sequence> alignments = toSequenceList(rightAlignments, toSequenceList(leftAlignments, new ArrayList<Sequence>(), left),right);
