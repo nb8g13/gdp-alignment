@@ -2,14 +2,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
+/**
+ * Class for building trees according to UPGMA used by Muscle
+ * @author LukeStacey
+ *
+ */
 public class UPGMATreeBuilder implements TreeBuilder {
 	
 	SimilarityMetric<Double> metric;
 	DistanceMatrix<Double> distanceMatrix;
 	List<Profile> profiles;
 	ProfileMerger merger;
-	
+	/**
+	 * Constructor.
+	 * @param strings Array of strings to be aligned
+	 * @param metric Similarity metric to decide alignment order
+	 * @param merger Profile merger to combine profiles
+	 * @param reps array of reputations associated with the array of strings
+	 */
 	public UPGMATreeBuilder(String[] strings, SimilarityMetric<Double> metric, ProfileMerger merger, double[] reps) {
 		
 		this.metric = metric;
@@ -42,7 +52,10 @@ public class UPGMATreeBuilder implements TreeBuilder {
 	}
 	
 
-	@Override
+	/**
+	 * selects and combines another 2 profiles
+	 * @return the single combined aligned profile
+	 */
 	public Profile nextCluster() {
 		
 		DistanceMatrix<Double>.Value mv = this.distanceMatrix.findMax();
@@ -102,11 +115,17 @@ public class UPGMATreeBuilder implements TreeBuilder {
 		}
 		return nextCluster;
 	}
-	
+	/**
+	 * Used to end the clustering loop when only one profile remains
+	 * @return true when only one profile remains
+	 */
 	public boolean finished() {
 		return profiles.size() < 1;
 	}
-	
+	/**
+	 * Runs nextCluster until only one profile remains
+	 * @return final full profile
+	 */
 	public Profile clusterToCompletion() {
 		
 		while(profiles.size() > 1) {

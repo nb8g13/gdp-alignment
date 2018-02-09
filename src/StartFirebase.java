@@ -5,7 +5,11 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 
-//Utility class that connects to the firebase backend
+/**
+ * Utility class that connects to the firebase backend
+ * @author LukeStacey
+ *
+ */
 public class StartFirebase {
 	
 	public static void connect() {

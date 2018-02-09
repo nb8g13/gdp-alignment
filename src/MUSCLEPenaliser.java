@@ -1,17 +1,29 @@
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Class for calculating gap costs with muscle algorithm
+ * @author LukeStacey
+ *
+ */
 public class MUSCLEPenaliser implements GapPenalty {
 	
 	double g;
 	double e;
-	
+	/**
+	 * Constructor
+	 * @param g gap cost
+	 * @param e extension cost
+	 */
 	public MUSCLEPenaliser(double g, double e) {
 		this.g= g;
 		this.e = e;
 	}
 
-	@Override
+	/**
+	 * Calculates the gap open costs for the given profile
+	 * @param prof profile
+	 * @return a list of doubles, the gap open cost at that point
+	 */
 	public List<Double> openCost(Profile prof) {
 		List<Double> opens = new ArrayList<Double>();
 		boolean[] inGap = new boolean[prof.getSequences().size()];
@@ -50,7 +62,11 @@ public class MUSCLEPenaliser implements GapPenalty {
 		return opens;
 	}
 
-	@Override
+	/**
+	 * Calculates the gap close costs for the given profile
+	 * @param prof profile
+	 * @return a list of doubles, the gap close cost at that point
+	 */
 	public List<Double> closeCost(Profile prof) {
 		List<Double> closes = new ArrayList<Double>();
 		boolean[] inGap = new boolean[prof.getSequences().size()];
@@ -92,6 +108,10 @@ public class MUSCLEPenaliser implements GapPenalty {
 	}
 	
 	@Override
+	/**
+	 * getter for extension
+	 * @return extension
+	 */
 	public double extenstionCost() {
 		return this.e;
 	}

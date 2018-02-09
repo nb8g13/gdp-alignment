@@ -1,5 +1,9 @@
 import java.util.List;
-
+/**
+ * Interface for gap penalties
+ * @author LukeStacey
+ *
+ */
 public interface GapPenalty {
 	
 	public List<Double> openCost(Profile prof);
