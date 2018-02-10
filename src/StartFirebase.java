@@ -16,7 +16,7 @@ public class StartFirebase {
 		FileInputStream serviceAccount;
 		try {
 			serviceAccount = new FileInputStream(
-					"tmp\\test-project-96190-firebase-adminsdk-f5lx8-3d82f9bd49.json");
+					"tmp\\test-project-96190-firebase-adminsdk-f5lx8-2e81f98aa2.json");
 			FirebaseOptions options = new FirebaseOptions.Builder()
 					.setCredentials(GoogleCredentials.fromStream(serviceAccount))
 					.setDatabaseUrl("https://test-project-96190.firebaseio.com/")

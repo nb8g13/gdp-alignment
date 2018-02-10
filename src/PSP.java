@@ -52,7 +52,7 @@ public class PSP implements ScoringSystem {
 	/**
 	 * Adds together all the reputations in a sequence list
 	 * @param seqs list of sequences
-	 * @return sum of reputaions
+	 * @return sum of reputations
 	 */
 	public double sumReps(List<Sequence> seqs) {
 		double sum=0;

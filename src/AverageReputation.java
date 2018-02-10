@@ -14,13 +14,18 @@ public class AverageReputation implements ReputationAssigner {
 	@Override
 	public double calculateReputation(Mutation mutation) {
 		
-		if (mutation.getA().equals("admin")) {
+		if(mutation.getA().equals("admin")) {
+			System.out.println("Author is admin");
 			return 0.5;
 		}
 		
-		DatabaseReference ref = FirebaseDatabase
+		System.out.println("Getting rep reference: " + mutation.getA());
+		
+		DatabaseReference ref2 = FirebaseDatabase
 				.getInstance()
-				.getReference("/users/" + mutation.getA() + "/repScore");
+				.getReference("users/" + mutation.getA() + "/repScore");
+		
+		System.out.println("reference is: " + ref2.toString());
 		
 		
 		class RepListener implements ValueEventListener {
@@ -29,11 +34,12 @@ public class AverageReputation implements ReputationAssigner {
 			
 			@Override
 			public void onCancelled(DatabaseError arg0) {
-				System.err.println("Could not recover reputation for user: " + mutation.getA());
+				System.out.println("Could not recover reputation for user: " + mutation.getA());
 			}
 
 			@Override
 			public void onDataChange(DataSnapshot snap) {
+				System.out.println("DATA CHANGE");
 				double rep = snap.getValue(Double.class);
 				if(average == 0.0) {
 					average = rep;
@@ -43,20 +49,24 @@ public class AverageReputation implements ReputationAssigner {
 					average = decay*average + (1-decay)*rep;
 				}
 				
+				System.out.println("Triggered");
 				done = true;
 			}
 			
 			public boolean getDone() {
 				return done;
 			}
-			
 		}
+		
 		
 		RepListener rl = new RepListener();
 		
-		ref.addListenerForSingleValueEvent(rl);
+		System.out.println("Adding rep listener");
+		ref2.addValueEventListener(rl);
+		System.out.println("rep listener added");
 		
 		while(!rl.getDone()) {
+			//System.out.println("waiting...");
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {

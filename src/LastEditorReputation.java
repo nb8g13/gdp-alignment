@@ -9,7 +9,7 @@ import java.util.List;
 public class LastEditorReputation implements ReputationAssigner {
 
 	@Override
-	public double calculateReputation(List<Mutation> mutations) {
+	public double calculateReputation(Mutation mutations) {
 		// TODO Auto-generated method stub
 		return 0.0;
 	}

@@ -1,7 +1,9 @@
+import org.apache.log4j.BasicConfigurator;
 
 public class TestFirebaseConnection {
 	public static void main(String[] args) {
 		StartFirebase.connect();
+		BasicConfigurator.configure();
 		System.out.println("firebase loaded");
 		String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
 		
@@ -11,16 +13,7 @@ public class TestFirebaseConnection {
 				new PluralityPicker()
 				));
 		
-		fbdr.getMutationList("-L47J9-WHNEkGwjgbkSR", "-L47J916ZiWXlDjvb7qN");
-		
-		while(!fbdr.done) {
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
+		fbdr.update("-L4wW17hQ7OiQjo3J51l", "-L4wW1941-3ihAs7Jdll");
 	}
 
 }
