@@ -5,5 +5,5 @@ import java.util.List;
  *
  */
 public interface ReputationAssigner {
-	public double calculateReputation(Mutation mutations);
+	public double calculateReputation(Mutation mutation);
 }

@@ -17,9 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 public class LevenshteinReward implements ReputationAward {
 
 	@Override
-	public void award(String winner, List<Mutation> mutations, List<Caption> captions) {
-		
-		Map<String, Double> reputationGain = new HashMap<String, Double>();
+	public void award(String winner, List<Mutation> mutations, List<Caption> captions, Map<String, Double> reputations) {
 		
 		String current = "";
 		
@@ -27,8 +25,11 @@ public class LevenshteinReward implements ReputationAward {
 		
 		for(int i = 0; i < captions.size(); i++) {
 			
-			if(!mutations.get(i).getA().equals("admin")) {
-				Caption caption = captions.get(i);
+			Mutation mut = mutations.get(i);
+			Caption caption = captions.get(i);
+			
+			if(!mut.getA().equals("admin")) {
+
 				String withMutation = caption.getText();
 				
 				int dist1 = ld.apply(winner, current);
@@ -36,52 +37,10 @@ public class LevenshteinReward implements ReputationAward {
 				
 				String author = mutations.get(i).getA();
 				
-				if(reputationGain.containsKey(author)) {
-					reputationGain.put(author, reputationGain.get(i) + dist1 - dist2);
-				}
-				
-				else {
-					reputationGain.put(author, (double) dist1 - dist2);
-				}
+				reputations.put(author, reputations.get(author) + dist1 - dist2);
 			}
+			
+			current = caption.getText();
 		}
-			
-		Iterator<Entry<String, Double>> iter = reputationGain.entrySet().iterator();
-		List<ReputationTransaction> rts = new ArrayList<ReputationTransaction>();
-		
-		while(iter.hasNext()) {
-			Entry<String, Double> entry = iter.next();
-				
-			if(!entry.getKey().equals("admin")) {
-				DatabaseReference ref = FirebaseDatabase
-						.getInstance()
-						.getReference("/users/" + entry.getKey());
-					
-				ReputationTransaction rt = new ReputationTransaction(entry.getValue());
-				ref.runTransaction(rt);
-				rts.add(rt);
-			}
-		}
-			
-		boolean done = false;
-			
-		while(!done) {
-			
-			try {
-				Thread.sleep(1000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			done = true;
-			for(int i = 0; i < rts.size(); i++) {
-				if(!rts.get(i).isDone()) {
-					done = false;
-					break;
-				}
-			}
-		}		
 	}
-	
 }
