@@ -23,7 +23,7 @@ public class Middleware {
 		HistoryGenerator hg = new CaptionHistoryGenerator(new AverageReputation(reputations, 0.9));
 		List<Caption> captions = hg.getHistory(mutations, reputations);
 		
-		ConsensusAlgorithm ca = new PluralityConsensus(subs, new CapsNoPunctuation(), new PluralityPicker());
+		ConsensusAlgorithm ca = new PluralityConsensus(subs, new CapsNoPunctuation(), new FrequencyVoter());
 		
 		String winner = ca.getConsensus(mutations, captions);
 		

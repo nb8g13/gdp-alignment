@@ -37,10 +37,12 @@ public class TestAlignment {
 		Profile prof5 = new Profile(new Sequence("YO WALD ITS YA BOI THE YAKUZA"));
 		
 		
-		Profile output = merger.merge(prof3,  prof4);
+		Profile output = merger.merge(prof1,  prof2);
 		
 		System.out.println("Left child: " + prof3);
 		System.out.println("Right child: " + prof4);
 		System.out.println("Alignment: " + output);
+		
+		
 	}
 }
