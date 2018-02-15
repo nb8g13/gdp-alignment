@@ -1,0 +1,625 @@
+acorn ! eggcorn
+eggcorns ! acorns
+ad ! at
+ad ! and
+Adam ! atom
+ado ! adieu
+ado ! to do
+adverse ! averse
+airwaves ! airways
+aisle ! isle
+alimentary ! elementary
+all fours ! our fours
+already ! all ready
+amateur ! armature
+amateur ! amature
+amused ! bemused
+ancestor ! ansister
+anecdotal ! antidotal
+appall ! uphaul
+arrears ! the rears
+arrow ! narrow
+as soon ! assume
+augur ! auger
+augurs ! all goes
+auld ! old
+averse ! adverse
+awkward ! awkword
+Axel ! axle
+backpedal ! backpeddle
+bald ! bold
+baling ! bailing
+band ! ban
+bandied ! branded
+bandy ! banty
+barbed ! barred
+barbed wire ! bobwire
+bare ! bear
+barred ! barrel
+barrow ! barrel
+bass ! base
+bat ! batter
+bated ! baited
+bawl ! ball
+bead ! beat
+bear ! bare
+beck ! back
+beck and call ! beckon call
+beck and call ! beacon call
+beck and call ! beckoned call
+bed ! bread
+beg ! beckon
+behoove ! be who of
+bellwether ! bellweather
+benighted ! beknighted
+beseech ! besiege
+bide ! buy
+bit ! pit
+bite ! byte
+blackened ! black and
+blackmail ! blackmale
+bludgeon ! bloodgeon
+bogged ! boggled
+bogged down ! balked down
+boisterous ! voiceterous
+bona fide ! bonified
+boot(-)strap ! boots-trap
+bouillon ! bullion
+bow ! bough
+brand-new ! bran-new
+breadth ! breath
+brim ! rim
+buck ! butt
+bud ! butt
+bull ! bowl
+bumper to bumper ! bumpetta-bumpetta
+bupkis, bupkus, bupkiss ! buttkiss
+bus ! bust
+butt ! but
+butt ! bud
+by and by ! bye and bye
+by and large ! by enlarge
+by and large ! by in large
+by ear ! by year
+by-election ! bi-election
+bylaw ! bi-law
+byproduct ! bi-product
+cacciatore ! catchitore
+cacophony ! cacoughany
+cahoots ! cohorts
+canola ! granola
+cart ! cat
+case in point ! case and point
+catnap ! catchnap
+ceanothus ! cyanothus
+cease ! seize
+cell-phone ! self-phone
+centrifugal ! centrifical
+centripetal ! centripedal
+cents ! sense
+chaise longue ! chaise lounge
+chalk ! chuck
+chalk ! chock
+champ at the bit ! chomp at the bit
+charm ! champ
+chase ! cheese
+chic ! sheik
+chock ! chalk(ed)
+cholesterol ! cholester oil
+chord ! cord
+chute ! shoot
+cinch ! synch
+clink ! cling
+clique ! click
+co-opt ! co-op
+coded ! coated
+coif(f)ed ! quaffed
+cold ! coal
+cold-hearted ! cold harded
+cole slaw ! cold slaw
+coma ! comma
+come on ! common
+commander-in-chief ! commander and chief
+congestive ! conjunctive
+contend ! content
+copy writer ! copyrighter
+copyright ! copywrite
+cord ! chord
+corps ! core
+corroborate ! collaborate
+cost ! caused
+courtesy ! curtsey
+crosier ! crow's ear
+cruller ! crawler
+crux ! crutch
+cue ! queue
+curb ! curve
+cuttlefish ! cuddlefish
+cymbal ! symbol
+dander ! dandruff
+dander ! gander
+date ! day
+dawn ! don
+dawn ! dong
+day and age ! day in age
+deem ! deign
+defamation ! deformation
+defunct ! defunked
+defuse ! diffuse
+deluded ! diluted
+demur ! demure
+depth ! death
+derring-do ! daring-do
+desert ! dessert
+dessert ! desert
+desist ! decease
+die ! dye
+die-hard ! die-hearted
+discard ! disguard
+disillusioned ! dissolutioned
+disingenuous ! disingenuine
+dissonance ! dissidence
+distraught ! diswrought
+diuretic ! diarrhetic
+do ! dew
+do ! due
+doe ! dough
+dog-eat-dog ! doggy-dog
+don ! dawn
+downright ! darn right
+drawl ! brawl
+drawl ! draw
+drum up ! strum up
+dudgeon ! dungeon
+due ! do
+dust ! dusk
+each his ! each's
+eavesdrop ! ease drop
+eavesdrop ! eardrop
+eclair ! eggclair
+ectopic ! eggtopic
+edge ! age
+en ! on, in
+en-suite ! un-suite
+entree ! ontray
+espresso ! expresso
+eternally ! internally
+euphemism ! youthamism
+ever ! every
+exact ! enact
+exact ! extract
+exclamation ! explanation
+exercise ! exorcise
+exorbitant ! exuberant
+exorcise ! exercise
+expatriate ! expatriot
+expletive ! explicative
+exponential ! expotential
+fait ! fate
+far be it from ! far be it for
+fartlek ! fartlick
+faze ! phase
+fell ! foul
+fell ! fowl
+fetal ! feeble
+few ! view
+figment ! pigment
+first of all ! firstable
+fiscal ! physical
+flair ! flare
+flap ! flat
+flawless ! floorless
+flesh ! flush
+flout ! flaunt
+flush ! flesh
+fly ! flaw
+foment ! ferment
+foolproof ! fullproof
+foolscap ! fullscape
+foregone ! far gone
+foreword ! forward
+founder ! flounder
+fount ! font
+front and center ! front in center
+furrow ! furl
+gain ! game
+gall ! gaul
+game ! gain
+gamut ! gamete
+gamut ! gambit
+Geiger ! giga
+get-go ! gecko
+ghost ! goat
+gin ! djinn
+gird ! girdle
+gobbledygook ! garbledygook
+godsend ! god's end
+gold ! goal
+granted ! granite
+grin ! grim
+gung-ho ! gun-ho
+guttural ! gutteral
+hackneyed ! hack-kneed
+hair ! hare
+hair's breadth ! hare's breath
+hale ! hail
+hallmark ! wholemark
+ham-fisted ! hand fisted
+hand ! hat
+handful ! hand few
+Hansom ! handsome
+haphazard ! half-hazard
+harbinger ! harbringer
+hardship ! heartship
+hardy ! hearty
+harebrained ! hairbrained
+hawk ! hock
+heap ! heave
+hear ! here
+hearty ! hardy
+heel ! heal
+hegemony ! hedgemoney
+heresy ! hearsay
+hierarchy ! higherarchy
+hire ! higher
+hoarfrost ! whorefrost
+hoist ! host
+holds ! holes
+hollandaise ! holiday(s)
+hollandaise ! holland day
+Holter ! halter
+home ! hone
+hominem ! homonym
+hue and cry ! human cry
+hurtle ! hurdle
+hybrid ! high bred
+hydrocele ! hydroseal
+I'll be darned ! all be darned
+ilk ! elk
+immemorial ! in memorial
+imperial ! empirical
+imprimatur ! impremature
+in other ! another
+incestuous ! insectuous
+inclement ! inclimate
+incorrigible ! incourageable
+inherent ! inherit
+integrate ! intergrade
+intents and purposes ! intensive purposes
+interfere ! interfear
+interim ! in-term
+intolerant ! and tolerant
+invaluable ! unvaluable
+invisible ! invincible
+jaw ! jar
+jibe ! jive
+keel ! kill
+knell ! nail
+knickers ! nipples
+kowtow ! cow-tow
+lactose ! lack toast
+laissez-faire ! lazy-fare
+landlubber ! landlover, land lover
+last ditch ! last stitch
+layman ! lame man
+leach ! leech
+lease ! leash
+leeway ! leadway
+lemonade ! lemon-aid
+lengths ! links
+leper ! leopard
+let alone ! little lone
+libel ! liable
+limb ! lurch
+linguistics ! languistics
+lo and behold ! long behold
+locus ! locust
+loggerheads ! lagerheads
+lose ! loose
+lost ! loss
+lowdown ! load down
+lymph ! limp
+magnate ! magnet
+manna ! manner
+manner ! manor
+mano a mano ! mano-on-mano
+marble ! marball
+marshal ! martial
+martial ! marshall
+mast ! mass
+medal ! metal
+meet ! meat
+metal ! medal
+mettle ! metal
+middlin' ! midland
+midriff ! midrift
+midst ! mist
+might ! my
+might ! mine
+might as ! minus
+migraine ! mindgrain
+militate ! mitigate
+mince ! mix
+mind ! mine
+mind you ! mind due
+mishmash ! mixmash
+mismatched ! mixmatch
+moot ! mood
+moot ! mute
+moreover ! morever
+mores ! morays
+mosh ! marsh
+mother lode ! motherload
+mourning ! morning
+mundane ! Monday
+narrow ! arrow
+naught ! knot
+naught ! not
+nautical ! knotical
+navel ! naval
+neck and neck ! neck in neck
+nether ! never
+next door ! next store
+nit ! knit
+nougat ! nugget
+oats ! oaks
+object ! option
+of salt ! assault
+off the beaten path ! off the beat and path
+offended ! offened
+oft ! off
+old wives' tale ! old wise tail
+on track ! untracked
+once in a while ! once and a while
+one and the same ! one in the same
+one such ! once such
+one(-)off ! one(-)of
+opposable ! a posable
+or other ! or rather
+order ! able
+out of ! outer
+overdue ! overdo
+owe ! own
+pact ! pack
+paean ! peon
+pains(-)taking ! pain-staking
+pale ! pail
+palm ! pawn
+panty ! pansy
+paprika ! pepperika
+paramour ! power mower
+part and parcel ! part in parcel
+pass muster ! pass mustard
+passed ! past
+past ! passed
+pat ! packed
+pay ! play
+pay-per-view ! paper-view
+pedestal ! pedastool
+peer ! pier
+penchant ! pension
+per se ! per say
+peremptory ! pre-emptory
+perennial ! preannual
+petition ! partition
+pidgin ! pigeon
+piece ! peace
+pied ! pipe
+pike ! pipe
+pincer ! pincher
+pique ! peak
+plane ! plain
+plantar ! planter
+playwright ! playwrite
+poise ! pose
+polka dot ! poke-a-dot
+pore ! pour
+postpartum ! post-pardon
+powerhouse ! powerhorse
+pray ! prey
+precedent ! president
+prima donna ! pre-madonna
+prix-fixe ! pre-fix
+prospective ! perspective
+prowess ! poweress
+pustule ! pus jewel
+pylon ! pile-on
+pylon ! pie-line
+qualm ! quorum
+quitclaim ! quickclaim
+quote unquote ! quote on quote
+rabble ! rebel
+rabble ! rubble
+rabid ! rapid
+rain ! reign
+rampant ! rapid
+rank and file ! ranking file
+rapt ! wrapped
+ratify ! radify
+rear ! reel
+reckless ! wreckless
+regardless ! irregardless
+reign ! rain
+rein ! reign
+rein ! range
+renowned ! reknowned
+reproach ! approach
+rife ! ripe
+rift ! riff
+right of way ! right away
+ring ! wring
+ringer ! wringer
+rite ! right
+roll ! role
+roller coaster ! roll-a-coaster
+roost ! roast
+root ! route
+rote ! route
+roughshod ! roughshot
+row ! road
+row ! roll
+ruckus ! raucous
+sacred cow ! holy cow
+sacrilegious ! sacreligious
+saddle ! straddle
+said ! set
+salchow ! sowchow
+salchow ! sowcow
+samblind ! sand-blind
+Sanskrit ! sandscript
+sarcastic ! sartastic
+scapegoat ! scrapegoat
+scapegoat ! escape goat
+scare ! square
+scare ! scar
+sealed ! steeled
+seat ! seed
+segue ! segway
+seize ! cease
+self-righteous ! self-richeous
+sell ! sail
+sensor ! censor
+set foot ! step foot
+severally ! severely
+shoo ! shoe
+short ! shore
+short-sighted ! short-sided
+shrift ! shift
+shudder ! shutter
+sing-along ! sing-a-long
+single ! signal
+skeleton ! skeletal
+skewer ! skew
+skim ! skin
+skimmed ! skimp
+slake ! slack
+slather ! smother
+sleight ! slight
+slings ! strings
+slings ! stings
+slither ! sliver
+sliver ! slither
+sloe ! slow
+snub ! snob
+snuff ! stuff
+so to speak ! sort of speak
+soaking ! soak and
+soft-pedal ! soft-peddle
+sole ! soul
+sophomore ! southmore
+sopping, soaking ! soaping
+sordid ! sorted
+sought ! sort
+soup ! supe
+sow ! sew
+sow ! soak
+spark ! sparkle
+spayed ! spade
+sphere ! spear
+spit and image ! spitting image
+spout ! sprout
+spur ! spurn
+spur ! spurt
+squeamish ! squirmish
+squib ! squid
+stalk ! stock
+stark raving ! star-craving
+stark raving ! stalk raving
+stark raving ! stark raven
+statute ! statue
+stock ! stalk
+stock ! stalk
+stow ! stole
+strait ! straight
+strike ! stripe
+string ! sting
+suit ! suite
+surname ! sirname
+tack ! tact
+tact ! tack
+tail ! tale
+tale ! tail
+Tanager ! teenager
+tartar ! tarter
+tatterdemalion ! tattermedallion
+team ! teem
+teem ! team
+tenet ! tenant
+tenet ! tent
+tenterhooks ! tenderhooks
+term ! turn
+thrall ! trawl
+threw ! through
+throes ! throngs
+throes ! throws
+thumbs up ! thumps up
+tide ! tie
+tighty-whitey ! tidy-whitey
+tinderbox ! tenderbox
+to spite ! despite
+to-do ! ta-do
+toe ! tow
+told ! total
+told ! tolled
+tongs ! thongs
+tongue in cheek ! tongue and cheek
+Topsy ! top seed
+touch ! torch
+tow ! toe
+track ! tract
+tract ! track
+trade ! trait
+traitor ! trader
+traumatic ! dramatic
+tried ! trite
+trove ! cove
+turbine ! turban
+turn ! term
+ulterior ! alterior
+uncharted ! unchartered
+underlying ! underlining
+underlying ! underline
+undue ! undo
+untimely ! on timely
+up and coming ! up incoming
+urologist ! eurologist
+utmost ! upmost
+vale ! veil
+valedictorian ! valevictorian
+vantage ! vintage
+vast ! fast
+versus ! verses
+view ! you
+waist ! waste
+wander ! wonder
+wangle ! wrangle
+washboard ! dashboard
+way ! weigh
+way ! wave
+weigh ! way
+whale ! wail
+whence ! whenst
+whet ! wet
+while ! wild
+whittle ! wheedle
+wholesale ! whole-scale
+wide ! wild
+wildfire ! wildflowers
+will o' ! willow
+wind chill ! windshield
+windfall ! winfall
+wing ! whim
+wing ! wink
+wing ! wind
+wives ! wise
+woe ! whoa
+woe is ! woeth
+wont ! want
+worthwhile ! worthwild
+wreak ! reek
+wreak ! wreck
+wring ! ring
+wringer ! ringer
+wrought ! rot
+wrought ! rod
+wry ! rye

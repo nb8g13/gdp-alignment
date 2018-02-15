@@ -25,6 +25,10 @@ public class FinishedCaptionFilter implements CaptionFilter {
 		System.out.println("At iterators");
 		while(iter.hasNext()) {
 			UserInfo current = iter.next();
+			System.out.println(" start time: " + current.getStart());
+			System.out.println("end: " + current.getEnd());
+			System.out.println(current.getFinalCap());
+			System.out.println(current.getUUID());
 			boolean uncontested = true;
 			System.out.println("Getting second iterator");
 			Iterator<UserInfo> iter2 = uinfos.values().iterator();

@@ -46,6 +46,7 @@ public class CaptionHistoryGenerator implements HistoryGenerator {
 			Mutation current = iter.next();
 			double rep = ra.calculateReputation(current);
 			cap = current.getO().applyEdit(cap, rep);
+			cap.setT(current.getT());
 			captions.add(cap);
 		}
 		
